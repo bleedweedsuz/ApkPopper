@@ -58,7 +58,7 @@ public class Aboutus_Activity extends AppCompatActivity {
 
     public void onClick(View view){
         if(view.getId() == R.id.lugpl3Btn){
-            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.gnu.org/licenses/gpl-3.0.en.html")));
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/bleedweedsuz/ApkPopper/blob/master/LICENSE")));
         }
         else if(view.getId() == R.id.sourceCodeGithubBtn){
             startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/bleedweedsuz/ApkPopper")));
