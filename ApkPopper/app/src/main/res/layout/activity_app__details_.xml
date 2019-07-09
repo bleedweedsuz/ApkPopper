@@ -1,0 +1,955 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.AppDetails_Activity"
+    android:background="@color/colorPrimary">
+
+    <androidx.appcompat.widget.Toolbar
+        app:contentInsetLeft="0dp"
+        app:contentInsetStart="0dp"
+        app:contentInsetRight="0dp"
+        app:contentInsetEnd="0dp"
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#fff"
+        android:elevation="3dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="350dp"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <TextView
+                    app:fontFamily="@font/robotobold"
+                    android:id="@+id/titlebar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginLeft="4dp"
+                    android:textColor="#333333"
+                    android:textSize="17sp" />
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_below="@id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/App_Details_ImageView"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="15dp"
+                    android:contentDescription="@string/app_details_activity_image"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/girlresize"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/App_Details_textAppName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginRight="15dp"
+                    android:ellipsize="marquee"
+                    android:marqueeRepeatLimit="1"
+                    android:scrollHorizontally="true"
+                    android:singleLine="true"
+                    android:textColor="#333"
+                    android:textSize="21sp"
+                    app:fontFamily="@font/robotobold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/App_Details_ImageView"
+                    app:layout_constraintTop_toTopOf="@+id/App_Details_ImageView"
+                    tools:text="Clash Royale" />
+
+                <TextView
+                    android:id="@+id/App_Details_textPackageName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginRight="15dp"
+                    android:ellipsize="marquee"
+                    android:marqueeRepeatLimit="1"
+                    android:scrollHorizontally="true"
+                    android:singleLine="true"
+                    android:text="com.example.apkextract"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="13sp"
+                    app:fontFamily="@font/robotobold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/App_Details_textAppName"
+                    app:layout_constraintTop_toBottomOf="@+id/App_Details_textAppName" />
+
+                <LinearLayout
+                    android:onClick="onClick"
+                    android:id="@+id/App_Details_Extract_Button"
+                    android:layout_width="98dp"
+                    android:layout_height="36dp"
+                    android:layout_marginTop="44dp"
+                    android:layout_marginEnd="12dp"
+                    android:layout_marginRight="12dp"
+                    android:background="@color/colorAccent"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/App_Details_textPackageName">
+
+                    <TextView
+                        android:id="@+id/extractBtnTextV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/app_details_extract_button"
+                        android:textColor="#fff"
+                        android:textSize="14.5sp"
+                        app:fontFamily="@font/robotobold" />
+                </LinearLayout>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/App_Details_cardView"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="25dp"
+                    app:cardElevation="10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/App_Details_Extract_Button">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="69dp"
+                                android:background="?android:attr/selectableItemBackground"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:paddingLeft="@dimen/app_details_row_padding"
+                                android:paddingRight="@dimen/app_details_row_padding">
+
+                                <TextView
+                                    android:id="@+id/appSize"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:text="@string/app_apk_size"
+                                    android:textColor="#666"
+                                    android:textSize="14sp"
+                                    app:fontFamily="@font/roboto_light"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <TextView
+                                    android:id="@+id/text_appSize"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:gravity="end"
+                                    android:text="@string/app_apk_size"
+                                    android:textColor="#666"
+                                    android:textSize="14sp"
+                                    app:fontFamily="@font/roboto_light"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toEndOf="@id/appSize"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginLeft="16dp"
+                                android:layout_marginRight="16dp"
+                                android:background="#e6e6e6" />
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="69dp"
+                                android:background="?android:attr/selectableItemBackground"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:paddingLeft="@dimen/app_details_row_padding"
+                                android:paddingRight="@dimen/app_details_row_padding">
+
+                                <TextView
+                                    android:id="@+id/compiledSDK"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:text="@string/app_compiled_sdk"
+                                    android:textColor="#666"
+                                    android:textSize="14sp"
+                                    app:fontFamily="@font/roboto_light"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <TextView
+                                    android:id="@+id/text_compiledSdk"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:gravity="end"
+                                    android:text="@string/app_compiled_sdk"
+                                    android:textColor="#666"
+                                    android:textSize="14sp"
+                                    app:fontFamily="@font/roboto_light"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toEndOf="@id/compiledSDK"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginLeft="16dp"
+                                android:layout_marginRight="16dp"
+                                android:background="#e6e6e6" />
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="69dp"
+                                android:background="?android:attr/selectableItemBackground"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:paddingLeft="@dimen/app_details_row_padding"
+                                android:paddingRight="@dimen/app_details_row_padding">
+
+                                <TextView
+                                    android:id="@+id/textCompiledSdkCodeName"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:text="@string/app_compiled_sdk_code"
+                                    android:textColor="#666"
+                                    android:textSize="14sp"
+                                    app:fontFamily="@font/roboto_light"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <TextView
+                                    android:id="@+id/text_CompiledSdkCodeName"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:gravity="end"
+                                    android:text="@string/app_compiled_sdk_code"
+                                    android:textColor="#666"
+                                    android:textSize="14sp"
+                                    app:fontFamily="@font/roboto_light"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toEndOf="@id/textCompiledSdkCodeName"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginLeft="16dp"
+                                android:layout_marginRight="16dp"
+                                android:background="#e6e6e6" />
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="69dp"
+                                android:background="?android:attr/selectableItemBackground"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:paddingLeft="@dimen/app_details_row_padding"
+                                android:paddingRight="@dimen/app_details_row_padding">
+
+                                <TextView
+                                    android:id="@+id/textInstalledDate"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:text="@string/app_installed_date"
+                                    android:textColor="#666"
+                                    android:textSize="14sp"
+                                    app:fontFamily="@font/roboto_light"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <TextView
+                                    android:id="@+id/text_installedDate"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:gravity="end"
+                                    android:text="@string/app_installed_date"
+                                    android:textColor="#666"
+                                    android:textSize="14sp"
+                                    app:fontFamily="@font/roboto_light"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toEndOf="@id/textInstalledDate"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginLeft="16dp"
+                                android:layout_marginRight="16dp"
+                                android:background="#e6e6e6" />
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="69dp"
+                                android:background="?android:attr/selectableItemBackground"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:paddingLeft="@dimen/app_details_row_padding"
+                                android:paddingRight="@dimen/app_details_row_padding">
+
+                                <TextView
+                                    android:id="@+id/textLastUpdate"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:text="@string/app_last_update"
+                                    android:textColor="#666"
+                                    android:textSize="14sp"
+                                    app:fontFamily="@font/roboto_light"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <TextView
+                                    android:id="@+id/text_lastUpdate"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:gravity="end"
+                                    android:text="@string/app_last_update"
+                                    android:textColor="#666"
+                                    android:textSize="14sp"
+                                    app:fontFamily="@font/roboto_light"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toEndOf="@id/textLastUpdate"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginLeft="16dp"
+                                android:layout_marginRight="16dp"
+                                android:background="#e6e6e6" />
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="69dp"
+                                android:background="?android:attr/selectableItemBackground"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:paddingLeft="@dimen/app_details_row_padding"
+                                android:paddingRight="@dimen/app_details_row_padding">
+
+                                <TextView
+                                    android:id="@+id/textMime"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:text="@string/app_mime"
+                                    android:textColor="#666"
+                                    android:textSize="14sp"
+                                    app:fontFamily="@font/roboto_light"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <TextView
+                                    android:id="@+id/text_mime"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:gravity="end"
+                                    android:text="@string/app_mime"
+                                    android:textColor="#666"
+                                    android:textSize="14sp"
+                                    app:fontFamily="@font/roboto_light"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toEndOf="@id/textMime"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginLeft="16dp"
+                                android:layout_marginRight="16dp"
+                                android:background="#e6e6e6" />
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="69dp"
+                                android:background="?android:attr/selectableItemBackground"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:paddingLeft="@dimen/app_details_row_padding"
+                                android:paddingRight="@dimen/app_details_row_padding">
+
+                                <TextView
+                                    android:id="@+id/texttargetSdk"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:text="@string/app_targetsdk"
+                                    android:textColor="#666"
+                                    android:textSize="14sp"
+                                    app:fontFamily="@font/roboto_light"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <TextView
+                                    android:id="@+id/text_targetsdk"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:gravity="end"
+                                    android:text="@string/app_targetsdk"
+                                    android:textColor="#666"
+                                    android:textSize="14sp"
+                                    app:fontFamily="@font/roboto_light"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toEndOf="@id/texttargetSdk"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginLeft="16dp"
+                                android:layout_marginRight="16dp"
+                                android:background="#e6e6e6" />
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="69dp"
+                                android:background="?android:attr/selectableItemBackground"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:paddingLeft="@dimen/app_details_row_padding"
+                                android:paddingRight="@dimen/app_details_row_padding">
+
+                                <TextView
+                                    android:id="@+id/textMinSdk"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:text="@string/app_min_sdk"
+                                    android:textColor="#666"
+                                    android:textSize="14sp"
+                                    app:fontFamily="@font/roboto_light"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <TextView
+                                    android:id="@+id/text_minsdk"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:gravity="end"
+                                    android:text="@string/app_min_sdk"
+                                    android:textColor="#666"
+                                    android:textSize="14sp"
+                                    app:fontFamily="@font/roboto_light"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toEndOf="@id/textMinSdk"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginLeft="16dp"
+                                android:layout_marginRight="16dp"
+                                android:background="#e6e6e6" />
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="69dp"
+                                android:background="?android:attr/selectableItemBackground"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:paddingLeft="@dimen/app_details_row_padding"
+                                android:paddingRight="@dimen/app_details_row_padding">
+
+                                <TextView
+                                    android:id="@+id/textMaxSDK"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:text="@string/app_max_sdk"
+                                    android:textColor="#666"
+                                    android:textSize="14sp"
+                                    app:fontFamily="@font/roboto_light"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <TextView
+                                    android:id="@+id/text_max_sdk"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:gravity="end"
+                                    android:text="@string/app_max_sdk"
+                                    android:textColor="#666"
+                                    android:textSize="14sp"
+                                    app:fontFamily="@font/roboto_light"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toEndOf="@id/textMaxSDK"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginLeft="16dp"
+                                android:layout_marginRight="16dp"
+                                android:background="#e6e6e6" />
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="69dp"
+                                android:background="?android:attr/selectableItemBackground"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:paddingLeft="@dimen/app_details_row_padding"
+                                android:paddingRight="@dimen/app_details_row_padding">
+
+                                <TextView
+                                    android:id="@+id/textOpenGLEVersion"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:text="@string/app_openGLEVersion"
+                                    android:textColor="#666"
+                                    android:textSize="14sp"
+                                    app:fontFamily="@font/roboto_light"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <TextView
+                                    android:id="@+id/text_OpenGLEVersion"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:gravity="end"
+                                    android:text="@string/app_openGLEVersion"
+                                    android:textColor="#666"
+                                    android:textSize="14sp"
+                                    app:fontFamily="@font/roboto_light"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toEndOf="@id/textOpenGLEVersion"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginLeft="16dp"
+                                android:layout_marginRight="16dp"
+                                android:background="#e6e6e6" />
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="69dp"
+                                android:background="?android:attr/selectableItemBackground"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:paddingLeft="@dimen/app_details_row_padding"
+                                android:paddingRight="@dimen/app_details_row_padding">
+
+                                <TextView
+                                    android:id="@+id/textPlatformBuildVerison"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:text="@string/app_platform_build_version"
+                                    android:textColor="#666"
+                                    android:textSize="14sp"
+                                    app:fontFamily="@font/roboto_light"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <TextView
+                                    android:id="@+id/text_platformbuildver"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:gravity="end"
+                                    android:text="@string/app_platform_build_version"
+                                    android:textColor="#666"
+                                    android:textSize="14sp"
+                                    app:fontFamily="@font/roboto_light"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toEndOf="@id/textPlatformBuildVerison"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginLeft="16dp"
+                                android:layout_marginRight="16dp"
+                                android:background="#e6e6e6" />
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="69dp"
+                                android:background="?android:attr/selectableItemBackground"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:paddingLeft="@dimen/app_details_row_padding"
+                                android:paddingRight="@dimen/app_details_row_padding">
+
+                                <TextView
+                                    android:id="@+id/textVersionNo"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:text="@string/app_version_no"
+                                    android:textColor="#666"
+                                    android:textSize="14sp"
+                                    app:fontFamily="@font/roboto_light"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <TextView
+                                    android:id="@+id/text_verno"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:gravity="end"
+                                    android:text="@string/app_version_no"
+                                    android:textColor="#666"
+                                    android:textSize="14sp"
+                                    app:fontFamily="@font/roboto_light"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toEndOf="@id/textVersionNo"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginLeft="16dp"
+                                android:layout_marginRight="16dp"
+                                android:background="#e6e6e6" />
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="69dp"
+                                android:background="?android:attr/selectableItemBackground"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:paddingLeft="@dimen/app_details_row_padding"
+                                android:paddingRight="@dimen/app_details_row_padding">
+
+                                <TextView
+                                    android:id="@+id/textVersionCode"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:text="@string/app_version_code"
+                                    android:textColor="#666"
+                                    android:textSize="14sp"
+                                    app:fontFamily="@font/roboto_light"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <TextView
+                                    android:id="@+id/text_ver_code"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:gravity="end"
+                                    android:text="@string/app_version_no"
+                                    android:textColor="#666"
+                                    android:textSize="14sp"
+                                    app:fontFamily="@font/roboto_light"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toEndOf="@id/textVersionCode"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginLeft="16dp"
+                                android:layout_marginRight="16dp"
+                                android:background="#e6e6e6" />
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/App_Details_FeaturedTopicButton"
+                                android:layout_width="match_parent"
+                                android:layout_height="69dp"
+                                android:background="?android:attr/selectableItemBackground"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:onClick="onClick"
+                                android:paddingLeft="@dimen/app_details_row_padding"
+                                android:paddingRight="@dimen/app_details_row_padding">
+
+                                <TextView
+                                    android:id="@+id/textFeaturedTopic"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:text="@string/app_uses_features_"
+                                    android:textColor="#666"
+                                    android:textSize="14sp"
+                                    app:fontFamily="@font/roboto_light"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:gravity="end"
+                                    android:text="@string/app_see_more"
+                                    android:textColor="@color/colorAccent"
+                                    android:textSize="14sp"
+                                    app:fontFamily="@font/roboto_light"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toEndOf="@id/textFeaturedTopic"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginLeft="16dp"
+                                android:layout_marginRight="16dp"
+                                android:background="#e6e6e6" />
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/App_Details_DexClassButton"
+                                android:layout_width="match_parent"
+                                android:layout_height="69dp"
+                                android:background="?android:attr/selectableItemBackground"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:onClick="onClick"
+                                android:paddingLeft="@dimen/app_details_row_padding"
+                                android:paddingRight="@dimen/app_details_row_padding">
+
+                                <TextView
+                                    android:id="@+id/textDexClass"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:text="@string/app_dex_class"
+                                    android:textColor="#666"
+                                    android:textSize="14sp"
+                                    app:fontFamily="@font/roboto_light"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:gravity="end"
+                                    android:text="@string/app_see_more"
+                                    android:textColor="@color/colorAccent"
+                                    android:textSize="14sp"
+                                    app:fontFamily="@font/roboto_light"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toEndOf="@id/textDexClass"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginLeft="16dp"
+                                android:layout_marginRight="16dp"
+                                android:background="#e6e6e6" />
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/App_Details_ManifestButton"
+                                android:layout_width="match_parent"
+                                android:layout_height="69dp"
+                                android:background="?android:attr/selectableItemBackground"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:onClick="onClick"
+                                android:paddingLeft="@dimen/app_details_row_padding"
+                                android:paddingRight="@dimen/app_details_row_padding">
+
+                                <TextView
+                                    android:id="@+id/textManifest"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:text="@string/app_manifest"
+                                    android:textColor="#666"
+                                    android:textSize="14sp"
+                                    app:fontFamily="@font/roboto_light"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:gravity="end"
+                                    android:text="@string/app_see_more"
+                                    android:textColor="@color/colorAccent"
+                                    android:textSize="14sp"
+                                    app:fontFamily="@font/roboto_light"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toEndOf="@id/textManifest"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginLeft="16dp"
+                                android:layout_marginRight="16dp"
+                                android:background="#e6e6e6" />
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/App_Details_PermissionButton"
+                                android:layout_width="match_parent"
+                                android:layout_height="69dp"
+                                android:background="?android:attr/selectableItemBackground"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:onClick="onClick"
+                                android:paddingLeft="@dimen/app_details_row_padding"
+                                android:paddingRight="@dimen/app_details_row_padding">
+
+                                <TextView
+                                    android:id="@+id/textPermission"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:text="@string/app_permission"
+                                    android:textColor="#666"
+                                    android:textSize="14sp"
+                                    app:fontFamily="@font/roboto_light"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:gravity="end"
+                                    android:text="@string/app_see_more"
+                                    android:textColor="@color/colorAccent"
+                                    android:textSize="14sp"
+                                    app:fontFamily="@font/roboto_light"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toEndOf="@id/textPermission"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginLeft="16dp"
+                                android:layout_marginRight="16dp"
+                                android:background="#e6e6e6" />
+
+                        </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <ProgressBar
+                    android:visibility="gone"
+                    android:id="@+id/extractProgress"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="0dp"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    app:layout_constraintEnd_toStartOf="@+id/App_Details_Extract_Button"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/App_Details_ImageView"
+                    app:layout_constraintTop_toBottomOf="@+id/App_Details_ImageView" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
+</RelativeLayout>

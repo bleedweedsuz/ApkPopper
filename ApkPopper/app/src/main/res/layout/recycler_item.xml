@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:clickable="true"
+    android:focusable="true"
+    android:background="?attr/selectableItemBackground"
+    android:gravity="center"
+    android:layout_marginTop="1dp"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp">
+
+    <ImageView
+        android:id="@+id/fragmentSystemAppIcon"
+       android:src="@drawable/girlresize"
+        android:layout_width="75dp"
+        android:layout_height="75dp" />
+
+
+    <TextView
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="2dp"
+        android:scrollHorizontally="true"
+        android:gravity="center"
+        android:ellipsize="marquee"
+        android:marqueeRepeatLimit="1"
+        android:textColor="#222"
+        android:textSize="12sp"
+        app:fontFamily="@font/robotoregular"
+        android:id="@+id/fragmentSystemAppName"
+        android:layout_marginTop="3dp"
+        tools:text="Clash Royale"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:singleLine="true" />
+
+</LinearLayout>
