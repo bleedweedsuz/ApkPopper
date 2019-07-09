@@ -252,7 +252,7 @@
                         android:layout_marginStart="10dp"
                         app:fontFamily="@font/roboto_light"
                         android:padding="5dp"
-                        android:text="https://www.gnu.org/licenses/gpl-3.0.en.html"
+                        android:text="https://github.com/bleedweedsuz/ApkPopper/blob/master/LICENSE"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />
                 </LinearLayout>
