@@ -1,5 +1,4 @@
 /*
-    <one line to give the program's name and a brief idea of what it does.>
     ApkPopper "Simple App that lets user to get info about installed app and extract them."
     Copyright (C) 2019  Sujan Thapa
 
@@ -17,8 +16,6 @@
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
  */
-
-
 package com.ztcartxe.reppopkpa.apkpopper.activities;
 
 import androidx.annotation.NonNull;
