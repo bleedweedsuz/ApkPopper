@@ -10,7 +10,7 @@
 			<li>App Icon &#10004;</li>
 			<li>App Name &#10004;</li>
 			<li>Package Name &#10004;</li>
-			<li>Version No.</li>
+			<li>Version No. &#10004;</li>
 			<li>Version Code &#10004;</li>
 			<li>Compiled SDK &#10004;</li>
 			<li>Compile SDK Code &#10004;</li>
