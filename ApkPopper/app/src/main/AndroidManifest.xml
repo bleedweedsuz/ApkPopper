@@ -6,12 +6,12 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/icon_launcher_custom"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/icon_launcher_custom_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.Aboutus_Activity"></activity>
+        <activity android:name=".activities.Aboutus_Activity" />
         <activity android:name=".activities.License_Credits_Activity" />
         <activity android:name=".activities.ApkFileSaveFormat_Activity" />
         <activity android:name=".activities.Permission_Activity" />
@@ -19,7 +19,8 @@
         <activity android:name=".activities.DexClass_Activity" />
         <activity android:name=".activities.UsesFeatures_Activity" />
         <activity android:name=".activities.AppDetails_Activity" />
-        <activity android:name=".activities.MainActivity">
+        <activity android:name=".activities.Main_Activity" />
+        <activity android:name=".activities.MainIntro_Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

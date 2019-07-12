@@ -59,5 +59,8 @@ public class License_Credits_Activity extends AppCompatActivity {
         else if(view.getId() == R.id.fontAwesomeBtn){
             startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://fontawesome.com/v4.7.0/license/")));
         }
+        else if(view.getId() == R.id.appintroBtn){
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/AppIntro/AppIntro/blob/master/LICENSE")));
+        }
     }
 }

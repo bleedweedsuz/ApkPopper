@@ -102,8 +102,7 @@ public class PackageFullDetails {
 
     public float getFileSize(){
         long fileSize = file.length(); //bytes
-        float fileMB = Float.valueOf(fileSize) /(1024*1024);
-        return fileMB;
+        return (float)fileSize / (1024*1024);
     }
 
     public String getMIME(){

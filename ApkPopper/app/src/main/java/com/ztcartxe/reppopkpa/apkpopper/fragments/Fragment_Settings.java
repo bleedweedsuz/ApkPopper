@@ -37,6 +37,7 @@ import com.ztcartxe.reppopkpa.apkpopper.R;
 import com.ztcartxe.reppopkpa.apkpopper.activities.Aboutus_Activity;
 import com.ztcartxe.reppopkpa.apkpopper.activities.ApkFileSaveFormat_Activity;
 import com.ztcartxe.reppopkpa.apkpopper.activities.License_Credits_Activity;
+import com.ztcartxe.reppopkpa.apkpopper.activities.MainIntro_Activity;
 import com.ztcartxe.reppopkpa.apkpopper.utils.Utility;
 
 public class Fragment_Settings extends Fragment implements View.OnClickListener {
@@ -61,6 +62,7 @@ public class Fragment_Settings extends Fragment implements View.OnClickListener 
 
         view.findViewById(R.id.aboutusBtn).setOnClickListener(this);
         view.findViewById(R.id.licenseBtn).setOnClickListener(this);
+        view.findViewById(R.id.tutorialBtn).setOnClickListener(this);
 
         gridSizeTextView.setText("Grid Column [" + Utility.getSettingGridSizeData(getContext()) + "]");
 
@@ -106,6 +108,11 @@ public class Fragment_Settings extends Fragment implements View.OnClickListener 
         }
         else if(view.getId() == R.id.licenseBtn){
             getContext().startActivity(new Intent(getContext(), License_Credits_Activity.class));
+        }
+        else if(view.getId() == R.id.tutorialBtn){
+            Intent i = new Intent(getContext(), MainIntro_Activity.class);
+            i.putExtra("isTutorial", true);
+            startActivity(i);
         }
     }
 

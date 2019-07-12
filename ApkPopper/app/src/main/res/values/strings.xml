@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Apk Popper</string>
     <string name="app_logo_description">App Logo</string>
+    <string name="app_description">an open-source installed apk info extractor &amp; apk itself</string>
     <string name="image_refresh_description">Image Refresh</string>
     <string name="tab1_all_apps">System Apps</string>
     <string name="tab2_installed_apps">Installed Apps</string>
@@ -10,6 +11,7 @@
     <string name="app_version_no">Version No</string>
     <string name="app_version_code">Version Code</string>
     <string name="app_installed_date">Installed Date</string>
+    <string name="app_installed_location">Installed Location</string>
     <string name="app_last_update">Last Update</string>
     <string name="app_apk_size">Application Size</string>
     <string name="app_mime">MIME</string>
@@ -32,6 +34,7 @@
     <string name="app_apk_file_save_format_info">manage saved apk file name format</string>
     <string name="app_app_version">App Version</string>
     <string name="app_about_us">About Us</string>
+    <string name="app_tutorial">Show Tutorial</string>
     <string name="app_about_us_full_details">This app help users to extract apk which are installed in your device. It will list all system app (default) and installed app (which you installed). It will save in a specific location which you can check in setting tab. Super fast extract file with some customization filename. If your are nerd this system also extract details about app like permission, manifest file etc.\n\nThis app is an opensource so, you can easily find us in our github repository which is listed below. If you want to post issue or want to add features you can directly create issue in github. \n\nChEErs!! :)</string>
     <string name="app_rate_us">Rate Us</string>
     <string name="app_rate_us_info">give us stars in app store</string>
@@ -51,4 +54,6 @@
     <string name="key_preference_file_key_versionNo">pref_key_file_VersionNo</string>
     <string name="key_preference_file_key_versionCode">pref_key_file_VersionCode</string>
     <string name="key_preference_file_key_date">pref_key_file_VersionDate</string>
+
+    <string name="key_preference_file_key_mainIntro">pref_key_file_MainIntro</string>
 </resources>

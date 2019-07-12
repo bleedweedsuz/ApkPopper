@@ -62,7 +62,6 @@
                     android:layout_marginTop="15dp"
                     android:contentDescription="@string/app_details_activity_image"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/girlresize"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -322,6 +321,51 @@
                                     app:layout_constraintTop_toTopOf="parent" />
 
 
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginLeft="16dp"
+                                android:layout_marginRight="16dp"
+                                android:background="#e6e6e6" />
+
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="69dp"
+                                android:background="?android:attr/selectableItemBackground"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:paddingLeft="@dimen/app_details_row_padding"
+                                android:paddingRight="@dimen/app_details_row_padding">
+
+                                <TextView
+                                    android:id="@+id/textInstalledLocation"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:text="@string/app_installed_location"
+                                    android:textColor="#666"
+                                    android:textSize="14sp"
+                                    app:fontFamily="@font/roboto_light"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <TextView
+                                    android:id="@+id/text_installedLocation"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:gravity="end"
+                                    android:text="@string/app_installed_location"
+                                    android:textColor="#666"
+                                    android:textSize="14sp"
+                                    app:fontFamily="@font/roboto_light"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toEndOf="@id/textInstalledLocation"
+                                    app:layout_constraintTop_toTopOf="parent" />
                             </androidx.constraintlayout.widget.ConstraintLayout>
                             <View
                                 android:layout_width="match_parent"

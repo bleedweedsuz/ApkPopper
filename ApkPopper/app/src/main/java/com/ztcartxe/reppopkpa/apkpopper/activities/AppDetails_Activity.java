@@ -90,6 +90,7 @@ public class AppDetails_Activity extends AppCompatActivity implements ActivityCo
         ((TextView)findViewById(R.id.text_compiledSdk)).setText(packageFullDetails.getApkMeta().getCompileSdkVersion());
         ((TextView)findViewById(R.id.text_CompiledSdkCodeName)).setText(packageFullDetails.getApkMeta().getCompileSdkVersionCodename());
         ((TextView)findViewById(R.id.text_installedDate)).setText(packageFullDetails.getFirstInstalledTime());
+        ((TextView)findViewById(R.id.text_installedLocation)).setText(packageFullDetails.getAbsolutePath());
         ((TextView)findViewById(R.id.text_lastUpdate)).setText(packageFullDetails.getLastModifyTime());
         ((TextView)findViewById(R.id.text_mime)).setText(packageFullDetails.getMIME());
         ((TextView)findViewById(R.id.text_targetsdk)).setText(packageFullDetails.getApkMeta().getTargetSdkVersion());

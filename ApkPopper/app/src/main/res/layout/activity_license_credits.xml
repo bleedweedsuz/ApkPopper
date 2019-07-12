@@ -66,6 +66,71 @@
             android:layout_height="wrap_content">
 
             <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="5dp"
+                android:padding="20dp"
+                app:elevation="1dp">
+
+                <LinearLayout
+                    android:id="@+id/apkparserBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:onClick="onClick"
+                    android:orientation="vertical"
+                    android:paddingLeft="@dimen/app_details_row_padding"
+                    android:paddingTop="10dp"
+                    android:paddingRight="@dimen/app_details_row_padding"
+                    android:paddingBottom="10dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/robotoregular"
+                        android:padding="5dp"
+                        android:text="License"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:padding="5dp"
+                        android:text="Apk-parser"
+                        android:textSize="12sp"
+                        app:fontFamily="@font/roboto_light" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:padding="5dp"
+                        android:text="URL: https://github.com/hsiafan/apk-parser"
+                        android:textSize="12sp"
+                        app:fontFamily="@font/roboto_light" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:padding="5dp"
+                        android:text="Licenses Link: https://github.com/hsiafan/apk-parser/blob/master/LICENSE"
+                        android:textSize="12sp"
+                        app:fontFamily="@font/roboto_light" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
                 app:elevation="1dp"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
@@ -130,65 +195,66 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                app:elevation="1dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
                 android:layout_marginTop="10dp"
+                android:layout_marginRight="5dp"
                 android:layout_marginBottom="5dp"
                 android:padding="20dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                app:elevation="1dp">
 
                 <LinearLayout
-                    android:onClick="onClick"
-                    android:id="@+id/apkparserBtn"
-                    android:paddingTop="10dp"
-                    android:paddingBottom="10dp"
+                    android:id="@+id/appintroBtn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="?android:attr/selectableItemBackground"
                     android:clickable="true"
                     android:focusable="true"
+                    android:onClick="onClick"
+                    android:orientation="vertical"
                     android:paddingLeft="@dimen/app_details_row_padding"
+                    android:paddingTop="10dp"
                     android:paddingRight="@dimen/app_details_row_padding"
-                    android:orientation="vertical">
+                    android:paddingBottom="10dp">
 
                     <TextView
-                        android:textSize="14sp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:fontFamily="@font/robotoregular"
                         android:padding="5dp"
                         android:text="License"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        android:textSize="14sp" />
 
                     <TextView
-                        android:textSize="12sp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginStart="10dp"
-                        app:fontFamily="@font/roboto_light"
-                        android:padding="5dp"
-                        android:text="Apk-parser"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
-                    <TextView
-                        android:textSize="12sp"
-                        android:layout_marginLeft="10dp"
+                        android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
-                        app:fontFamily="@font/roboto_light"
+                        android:layout_marginLeft="10dp"
                         android:padding="5dp"
-                        android:text="URL: https://github.com/hsiafan/apk-parser"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        android:text="AppIntro"
+                        android:textSize="12sp"
+                        app:fontFamily="@font/roboto_light" />
 
                     <TextView
-                        android:textSize="12sp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginStart="10dp"
-                        app:fontFamily="@font/roboto_light"
-                        android:padding="5dp"
-                        android:text="Licenses Link: https://github.com/hsiafan/apk-parser/blob/master/LICENSE"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:padding="5dp"
+                        android:text="URL: https://github.com/AppIntro/AppIntro"
+                        android:textSize="12sp"
+                        app:fontFamily="@font/roboto_light" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:padding="5dp"
+                        android:text="Licenses Link: https://github.com/AppIntro/AppIntro/blob/master/LICENSE"
+                        android:textSize="12sp"
+                        app:fontFamily="@font/roboto_light" />
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>

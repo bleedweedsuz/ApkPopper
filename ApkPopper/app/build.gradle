@@ -7,8 +7,8 @@ android {
         applicationId "com.ztcartxe.reppopkpa.apkpopper"
         minSdkVersion 15
         targetSdkVersion 29
-        versionCode 1
-        versionName "1.0"
+        versionCode 2
+        versionName "1.1"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -32,4 +32,7 @@ dependencies {
     //FastScroll Recycler View
     implementation 'com.simplecityapps:recyclerview-fastscroll:2.0.0'
     implementation files('libs/apk-parser-2.6.9.jar')
+
+    //App Intro
+    implementation 'com.github.AppIntro:AppIntro:5.1.0'
 }

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
-    tools:context=".activities.MainActivity">
+    tools:context=".activities.Main_Activity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/activityMainToolBar"
@@ -30,7 +30,7 @@
                     android:id="@+id/activityMainAppLogo"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:src="@drawable/temperature" />
+                    android:src="@drawable/apk_logo" />
 
                 <TextView
                     app:fontFamily="@font/robotobold"

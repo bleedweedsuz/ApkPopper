@@ -113,4 +113,27 @@ public class Utility {
             return new boolean[]{false, false, false, false};
         }
     }
+
+    public static void setMainIntroVals(Context context, boolean val){
+        try {
+            SharedPreferences sharedPreferences = context.getSharedPreferences(context.getString(R.string.key_preference_file_key), Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putBoolean(context.getString(R.string.key_preference_file_key_mainIntro), val);
+            editor.apply();
+        }
+        catch (Exception ex){
+            ex.printStackTrace();
+        }
+    }
+
+    public static boolean getMainIntroValStatus(Context context){
+        try {
+            SharedPreferences sharedPreferences = context.getSharedPreferences(context.getString(R.string.key_preference_file_key), Context.MODE_PRIVATE);
+            return sharedPreferences.getBoolean(context.getString(R.string.key_preference_file_key_mainIntro), false);
+        }
+        catch (Exception ex){
+            ex.printStackTrace();
+            return false;
+        }
+    }
 }
