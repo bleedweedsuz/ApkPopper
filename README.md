@@ -27,7 +27,7 @@
 			<li>Manifest XML File &#10004;</li>
 			<li>Permission Lists &#10004;</li>
 		</ul>
-	<li>Extract installed APK File</li>
+	<li>Extract installed APK File &#10004;</li>
 </ol>
 
 <h5>Upcoming Features</h5>
