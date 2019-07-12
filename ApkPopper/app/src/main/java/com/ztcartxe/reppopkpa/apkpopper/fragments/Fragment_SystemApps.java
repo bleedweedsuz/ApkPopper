@@ -37,30 +37,31 @@ import java.util.ArrayList;
 
 public class Fragment_SystemApps extends Fragment {
 
-    FastScrollRecyclerView recyclerView;
-    RecyclerAdapterApps mAdapter;
-    ArrayList<PackageInfoItem> systemPackageInfoItemArrayList;
+    private FastScrollRecyclerView recyclerView;
+    private RecyclerAdapterApps mAdapter;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_system_apps,container,false);
+        return inflater.inflate(R.layout.fragment_system_apps,container,false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
         recyclerView = view.findViewById(R.id.recyclerView);
-        mAdapter = new RecyclerAdapterApps(getContext(), systemPackageInfoItemArrayList);
-
-        setLayout();
-
         RecyclerAdapterApps.ItemOffsetDecoration itemDecoration = new RecyclerAdapterApps.ItemOffsetDecoration(getActivity(), R.dimen.item_offset);
         recyclerView.addItemDecoration(itemDecoration);
-        recyclerView.setAdapter(mAdapter);
-        return view;
     }
 
     public void setSystemPackageInfoItemArrayList(ArrayList<PackageInfoItem> systemPackageInfoItemArrayList) {
-        this.systemPackageInfoItemArrayList = systemPackageInfoItemArrayList;
+        mAdapter = new RecyclerAdapterApps(getContext(), systemPackageInfoItemArrayList);
+        setLayout();
+
+        recyclerView.setAdapter(mAdapter);
     }
 
-    public void setLayout(){
+    void setLayout(){
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), Utility.totalGridSize));
     }
 }

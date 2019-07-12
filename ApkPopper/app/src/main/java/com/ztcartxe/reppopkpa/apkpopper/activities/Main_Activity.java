@@ -31,12 +31,14 @@ import androidx.viewpager.widget.ViewPager;
 import com.ztcartxe.reppopkpa.apkpopper.engine.PackageInfoManager;
 import com.ztcartxe.reppopkpa.apkpopper.R;
 import com.google.android.material.tabs.TabLayout;
+
 import com.ztcartxe.reppopkpa.apkpopper.adapter.ViewPagerAdapter;
 import com.ztcartxe.reppopkpa.apkpopper.fragments.Fragment_MyInstalledApps;
 import com.ztcartxe.reppopkpa.apkpopper.fragments.Fragment_Settings;
 import com.ztcartxe.reppopkpa.apkpopper.fragments.Fragment_SystemApps;
 import com.ztcartxe.reppopkpa.apkpopper.model.PackageInfoItem;
 import com.ztcartxe.reppopkpa.apkpopper.utils.Utility;
+
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -55,6 +57,7 @@ public class Main_Activity extends AppCompatActivity {
     Fragment_MyInstalledApps fragment_myInstalledApps;
     Fragment_Settings fragment_settings;
     ProgressBar progressBar;
+    boolean isDataLoading = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,6 +85,10 @@ public class Main_Activity extends AppCompatActivity {
         textToolbarTitle.setText(R.string.tab1_all_apps);
 
         //Load Apps Lists
+        //LoadAppsLists();
+
+        InitLayout();
+
         LoadAppsLists();
     }
 
@@ -91,6 +98,7 @@ public class Main_Activity extends AppCompatActivity {
             @Override
             public void onStart() {
                 progressBar.setVisibility(View.VISIBLE);
+                isDataLoading = true;
             }
 
             @Override
@@ -101,10 +109,14 @@ public class Main_Activity extends AppCompatActivity {
             @Override
             public void onFinished(ArrayList<PackageInfoItem> systemPackageInfoItemArrayList, ArrayList<PackageInfoItem> installedPackageInfoItemArrayList) {
                 try {
+                    isDataLoading = false;
                     progressBar.setVisibility(View.GONE);
                     Collections.sort(systemPackageInfoItemArrayList);
                     Collections.sort(installedPackageInfoItemArrayList);
-                    SetTabLayoutData(systemPackageInfoItemArrayList, installedPackageInfoItemArrayList);
+
+                    fragment_systemApps.setSystemPackageInfoItemArrayList(systemPackageInfoItemArrayList);
+                    fragment_myInstalledApps.setInstalledPackageInfoItemArrayList(installedPackageInfoItemArrayList);
+
                     tabLayout.getTabAt(currentSelectedTab).select();
                 }
                 catch (Exception ex){
@@ -114,13 +126,19 @@ public class Main_Activity extends AppCompatActivity {
         });
     }
 
-    private void SetTabLayoutData(ArrayList<PackageInfoItem> systemPackageInfoItemArrayList, ArrayList<PackageInfoItem> installedPackageInfoItemArrayList){
-        //ViewPager Setup
-        fragment_systemApps = new Fragment_SystemApps();
-        fragment_systemApps.setSystemPackageInfoItemArrayList(systemPackageInfoItemArrayList);
+    public void ReloadAppLists(View view){
+        try{
+            currentSelectedTab = tabLayout.getSelectedTabPosition();
+            LoadAppsLists();
+        }
+        catch (Exception ex){
+            ex.printStackTrace();
+        }
+    }
 
+    private void InitLayout(){
+        fragment_systemApps = new Fragment_SystemApps();
         fragment_myInstalledApps = new Fragment_MyInstalledApps();
-        fragment_myInstalledApps.setInstalledPackageInfoItemArrayList(installedPackageInfoItemArrayList);
 
         fragment_settings = new Fragment_Settings();
         fragment_settings.setFragment_systemApps(fragment_systemApps);
@@ -136,19 +154,25 @@ public class Main_Activity extends AppCompatActivity {
 
         //TabLayout Setup
         tabLayout.setupWithViewPager(viewPager);
-        TabLayout.Tab tabCall = tabLayout.getTabAt(0);
-        assert tabCall != null;
-        tabCall.setIcon(R.drawable.icon_system_apps);
-        TabLayout.Tab tabCall2 = tabLayout.getTabAt(1);
-        assert tabCall2 != null;
-        tabCall2.setIcon(R.drawable.icon_installed);
-        TabLayout.Tab tabCall3 = tabLayout.getTabAt(2);
-        assert tabCall3 != null;
-        tabCall3.setIcon(R.drawable.icon_setting);
+
+        try {
+            TabLayout.Tab tabCall = tabLayout.getTabAt(0);
+            tabCall.setIcon(R.drawable.icon_system_apps);
+            TabLayout.Tab tabCall2 = tabLayout.getTabAt(1);
+            tabCall2.setIcon(R.drawable.icon_installed);
+            TabLayout.Tab tabCall3 = tabLayout.getTabAt(2);
+            tabCall3.setIcon(R.drawable.icon_setting);
+        }
+        catch (NullPointerException ex){
+            ex.printStackTrace();
+        }
+
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 if(tab.getPosition() == 0){
+                    progressBar.setVisibility(isDataLoading?View.VISIBLE:View.GONE);
+                    currentSelectedTab = 0;
                     textToolbarTitle.setText(R.string.tab1_all_apps);
                     if(translate_flag) {
                         ObjectAnimator transAnimation = ObjectAnimator.ofFloat(refreshButtonHolder, "x", px, 0);
@@ -156,7 +180,10 @@ public class Main_Activity extends AppCompatActivity {
                         transAnimation.start();
                         translate_flag = false;
                     }
-                }else if(tab.getPosition() == 1){
+                }
+                else if(tab.getPosition() == 1){
+                    progressBar.setVisibility(isDataLoading?View.VISIBLE:View.GONE);
+                    currentSelectedTab = 1;
                     textToolbarTitle.setText(R.string.tab2_installed_apps);
                     if(translate_flag) {
                         ObjectAnimator transAnimation = ObjectAnimator.ofFloat(refreshButtonHolder, "x", px, 0);
@@ -164,7 +191,10 @@ public class Main_Activity extends AppCompatActivity {
                         transAnimation.start();
                         translate_flag = false;
                     }
-                }else if(tab.getPosition() == 2){
+                }
+                else if(tab.getPosition() == 2){
+                    progressBar.setVisibility(View.GONE);
+                    currentSelectedTab = 2;
                     textToolbarTitle.setText(R.string.tab3_setting);
                     if(!translate_flag) {
                         ObjectAnimator transAnimation = ObjectAnimator.ofFloat(refreshButtonHolder, "x", 0, px);
@@ -181,15 +211,5 @@ public class Main_Activity extends AppCompatActivity {
             public void onTabReselected(TabLayout.Tab tab) {
             }
         });
-    }
-
-    public void ReloadAppLists(View view){
-        try{
-            currentSelectedTab = tabLayout.getSelectedTabPosition();
-            LoadAppsLists();
-        }
-        catch (Exception ex){
-            ex.printStackTrace();
-        }
     }
 }

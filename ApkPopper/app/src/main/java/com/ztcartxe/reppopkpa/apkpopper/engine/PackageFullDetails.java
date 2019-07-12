@@ -22,6 +22,7 @@ package com.ztcartxe.reppopkpa.apkpopper.engine;
 
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.widget.Toast;
 
 import com.ztcartxe.reppopkpa.apkpopper.model.PackageInfoItem;
 
@@ -53,9 +54,11 @@ public class PackageFullDetails {
             this.packageInfo = packageInfoItem.context.getPackageManager().getPackageInfo(packageInfoItem.PackageName, 0);
         }
         catch (PackageManager.NameNotFoundException ex){
+            Toast.makeText(packageInfoItem.context, ex.getMessage(), Toast.LENGTH_SHORT).show();
             ex.printStackTrace();
         }
         catch (FileNotFoundException ex){
+            Toast.makeText(packageInfoItem.context, ex.getMessage(), Toast.LENGTH_SHORT).show();
             ex.printStackTrace();
         }
         catch (Exception ex){

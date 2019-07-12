@@ -20,6 +20,7 @@
 package com.ztcartxe.reppopkpa.apkpopper.fragments;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,29 +40,28 @@ import java.util.ArrayList;
 public class Fragment_MyInstalledApps extends Fragment {
     private FastScrollRecyclerView recyclerView;
     private RecyclerAdapterApps mAdapter;
-    private ArrayList<PackageInfoItem> installedPackageInfoItemArrayList;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_my_installed_apps,container,false);
+        return inflater.inflate(R.layout.fragment_my_installed_apps,container,false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
         recyclerView = view.findViewById(R.id.recyclerView);
-        mAdapter = new RecyclerAdapterApps(getContext(), installedPackageInfoItemArrayList);
-
-        setLayout();
-
         RecyclerAdapterApps.ItemOffsetDecoration itemDecoration = new RecyclerAdapterApps.ItemOffsetDecoration(getActivity(), R.dimen.item_offset);
         recyclerView.addItemDecoration(itemDecoration);
-
-        recyclerView.setAdapter(mAdapter);
-        return view;
     }
 
     public void setInstalledPackageInfoItemArrayList(ArrayList<PackageInfoItem> installedPackageInfoItemArrayList) {
-        this.installedPackageInfoItemArrayList = installedPackageInfoItemArrayList;
+        mAdapter = new RecyclerAdapterApps(getContext(), installedPackageInfoItemArrayList);
+        setLayout();
+        recyclerView.setAdapter(mAdapter);
     }
 
-    public void setLayout(){
+    void setLayout(){
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), Utility.totalGridSize));
     }
 }

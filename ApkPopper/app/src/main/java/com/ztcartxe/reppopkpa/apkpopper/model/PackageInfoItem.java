@@ -33,6 +33,7 @@ public class PackageInfoItem implements Comparable<PackageInfoItem>{
     public Drawable AppIcon;
     public ApplicationInfo applicationInfo;
     public Context context;
+    public boolean isAppExists;
 
     public PackageInfoItem(Context context, ResolveInfo resolveInfo){
         this.context = context;
@@ -42,9 +43,11 @@ public class PackageInfoItem implements Comparable<PackageInfoItem>{
             this.applicationInfo = context.getPackageManager().getApplicationInfo(this.PackageName, 0);
             this.AppName = (String)context.getPackageManager().getApplicationLabel(this.applicationInfo);
             this.AppIcon = context.getPackageManager().getApplicationIcon(this.PackageName);
+            this.isAppExists = true;
         }
         catch (PackageManager.NameNotFoundException ex)
         {
+            isAppExists = false;
             ex.printStackTrace();
         }
     }

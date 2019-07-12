@@ -77,8 +77,13 @@ public class UsesFeatures_Activity extends AppCompatActivity {
     private ArrayList<String> LoadFeatures(){
         packageFullDetails = new PackageFullDetails(AppDetails_Activity.packageInfoItem);
         ArrayList<String> list = new ArrayList<>();
-        for(UseFeature useFeature : packageFullDetails.getApkMeta().getUsesFeatures()){
-            list.add(useFeature.getName());
+        try {
+            for (UseFeature useFeature : packageFullDetails.getApkMeta().getUsesFeatures()) {
+                list.add(useFeature.getName());
+            }
+        }
+        catch (NullPointerException ex){
+            ex.printStackTrace();
         }
         return list;
     }

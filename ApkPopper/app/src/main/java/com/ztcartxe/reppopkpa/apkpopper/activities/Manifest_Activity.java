@@ -22,6 +22,7 @@ package com.ztcartxe.reppopkpa.apkpopper.activities;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -51,6 +52,10 @@ public class Manifest_Activity extends AppCompatActivity {
             codeView.setText(packageFullDetails.getApkFile().getManifestXml());
         }
         catch (IOException ex){
+            ex.printStackTrace();
+        }
+        catch (Exception ex){
+            Toast.makeText(this, ex.getMessage(), Toast.LENGTH_SHORT).show();
             ex.printStackTrace();
         }
     }

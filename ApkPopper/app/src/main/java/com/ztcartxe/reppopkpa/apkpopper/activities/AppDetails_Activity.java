@@ -82,6 +82,12 @@ public class AppDetails_Activity extends AppCompatActivity implements ActivityCo
     }
 
     private void setAppInfo(){
+        //check if app exists or not
+        if(!packageInfoItem.isAppExists){
+            Toast.makeText(this, "App not found! please refresh it", Toast.LENGTH_SHORT).show();
+            finish();
+        }
+
         ((ImageView)findViewById(R.id.App_Details_ImageView)).setImageDrawable(packageInfoItem.AppIcon);
         ((TextView)findViewById(R.id.App_Details_textAppName)).setText(packageInfoItem.AppName);
         ((TextView)findViewById(R.id.App_Details_textPackageName)).setText(packageInfoItem.PackageName);

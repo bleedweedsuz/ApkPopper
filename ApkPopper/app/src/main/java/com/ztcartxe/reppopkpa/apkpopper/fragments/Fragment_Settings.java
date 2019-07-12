@@ -43,11 +43,10 @@ import com.ztcartxe.reppopkpa.apkpopper.utils.Utility;
 public class Fragment_Settings extends Fragment implements View.OnClickListener {
 
     private TextView text_folderPath, text_appVersion;
-    private AlertDialog alertDialog;
     private TextView gridSizeTextView;
 
-    Fragment_MyInstalledApps fragment_myInstalledApps;
-    Fragment_SystemApps fragment_systemApps;
+    private Fragment_MyInstalledApps fragment_myInstalledApps;
+    private Fragment_SystemApps fragment_systemApps;
 
     @Nullable
     @Override
@@ -92,8 +91,7 @@ public class Fragment_Settings extends Fragment implements View.OnClickListener 
                 }
             });
             builder.setPositiveButton("Ok", null);
-            alertDialog = builder.create();
-            alertDialog.show();
+            builder.create().show();
         }
         else if(view.getId() == R.id.apk_file_save_format_btn){
             try {
