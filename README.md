@@ -1,9 +1,9 @@
 # ApkPopper
 <h4>Simple App that lets user to get info about installed app and extract them.</h4>
 
-<h5>This app will be available in app store soon..</h5>
+<p>Available in play store : https://play.google.com/store/apps/details?id=com.ztcartxe.reppopkpa.apkpopper</p>
 
-<h5>Current Features</h5>
+<p>Current Features</p>
 <ol>
 	<li>Get apk info</li>
 		<ul>
@@ -30,7 +30,7 @@
 	<li>Extract installed APK File &#10004;</li>
 </ol>
 
-<h5>Upcoming Features</h5>
+<p>Upcoming Features</p>
 <ol>
 	<li>Export manifest .xml file</li>
 	<li>Manifest file edit and repack</li>
