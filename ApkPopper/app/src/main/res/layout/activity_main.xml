@@ -84,6 +84,7 @@
 
     <com.google.android.material.tabs.TabLayout
         android:background="#fff"
+        app:tabMaxWidth="0dp"
         android:layout_alignParentBottom="true"
         android:id="@+id/activityMainTabLayout"
         android:layout_width="match_parent"

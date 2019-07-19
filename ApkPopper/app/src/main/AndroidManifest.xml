@@ -19,7 +19,7 @@
         <activity android:name=".activities.DexClass_Activity" />
         <activity android:name=".activities.UsesFeatures_Activity" />
         <activity android:name=".activities.AppDetails_Activity" />
-        <activity android:name=".activities.Main_Activity" />
+        <activity android:name=".activities.Main_Activity" android:configChanges="orientation|screenSize" />
         <activity android:name=".activities.MainIntro_Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

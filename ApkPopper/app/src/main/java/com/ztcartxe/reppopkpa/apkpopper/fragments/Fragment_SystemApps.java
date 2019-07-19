@@ -20,6 +20,7 @@
 package com.ztcartxe.reppopkpa.apkpopper.fragments;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,10 +34,10 @@ import com.ztcartxe.reppopkpa.apkpopper.adapter.RecyclerAdapterApps;
 import com.ztcartxe.reppopkpa.apkpopper.model.PackageInfoItem;
 import com.ztcartxe.reppopkpa.apkpopper.utils.Utility;
 
+import java.awt.font.TextAttribute;
 import java.util.ArrayList;
 
 public class Fragment_SystemApps extends Fragment {
-
     private FastScrollRecyclerView recyclerView;
     private RecyclerAdapterApps mAdapter;
 
@@ -55,13 +56,17 @@ public class Fragment_SystemApps extends Fragment {
     }
 
     public void setSystemPackageInfoItemArrayList(ArrayList<PackageInfoItem> systemPackageInfoItemArrayList) {
-        mAdapter = new RecyclerAdapterApps(getContext(), systemPackageInfoItemArrayList);
         setLayout();
-
+        mAdapter = new RecyclerAdapterApps(getContext(), systemPackageInfoItemArrayList);
         recyclerView.setAdapter(mAdapter);
     }
 
     void setLayout(){
-        recyclerView.setLayoutManager(new GridLayoutManager(getContext(), Utility.totalGridSize));
+        try {
+            recyclerView.setLayoutManager(new GridLayoutManager(getContext(), Utility.totalGridSize));
+        }
+        catch (Exception ex){
+            ex.printStackTrace();
+        }
     }
 }

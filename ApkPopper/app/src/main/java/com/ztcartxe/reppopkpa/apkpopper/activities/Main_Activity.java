@@ -21,6 +21,7 @@ package com.ztcartxe.reppopkpa.apkpopper.activities;
 
 import android.animation.ObjectAnimator;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
@@ -44,6 +45,8 @@ import java.util.Collections;
 
 public class Main_Activity extends AppCompatActivity {
 
+    private static final String TAG = "Main_Activity";
+
     int currentSelectedTab;
     Toolbar toolbar;
     TabLayout tabLayout;
@@ -63,6 +66,9 @@ public class Main_Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Utility.setDeviceScreenType(this);
+
 
         //Set Grid Size
         Utility.totalGridSize = Utility.getSettingGridSizeData(this);
@@ -111,6 +117,8 @@ public class Main_Activity extends AppCompatActivity {
                 try {
                     isDataLoading = false;
                     progressBar.setVisibility(View.GONE);
+
+                    //Sort Lists
                     Collections.sort(systemPackageInfoItemArrayList);
                     Collections.sort(installedPackageInfoItemArrayList);
 
@@ -120,6 +128,7 @@ public class Main_Activity extends AppCompatActivity {
                     tabLayout.getTabAt(currentSelectedTab).select();
                 }
                 catch (Exception ex){
+                    Log.e(TAG, ex.toString());
                     ex.printStackTrace();
                 }
             }
@@ -154,7 +163,6 @@ public class Main_Activity extends AppCompatActivity {
 
         //TabLayout Setup
         tabLayout.setupWithViewPager(viewPager);
-
         try {
             TabLayout.Tab tabCall = tabLayout.getTabAt(0);
             tabCall.setIcon(R.drawable.icon_system_apps);
@@ -166,6 +174,9 @@ public class Main_Activity extends AppCompatActivity {
         catch (NullPointerException ex){
             ex.printStackTrace();
         }
+
+        tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
+        tabLayout.setTabMode(TabLayout.MODE_FIXED);
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override

@@ -70,6 +70,7 @@
                 android:background="#e6e6e6" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/saveDirectoryPathBtn"
                 android:layout_width="match_parent"
                 android:layout_height="75dp"
                 android:background="?android:attr/selectableItemBackground"
@@ -321,6 +322,36 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:text="@string/app_tutorial"
+                    android:textColor="#666"
+                    android:textSize="14sp"
+                    app:fontFamily="@font/robotoregular"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:background="#e6e6e6" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/privacypPolicyBtn"
+                android:layout_width="match_parent"
+                android:layout_height="69dp"
+                android:background="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:paddingLeft="@dimen/app_details_row_padding"
+                android:paddingRight="@dimen/app_details_row_padding">
+
+                <TextView
+                    android:id="@+id/privacypPolicyText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="@string/app_privacyPolicy"
                     android:textColor="#666"
                     android:textSize="14sp"
                     app:fontFamily="@font/robotoregular"

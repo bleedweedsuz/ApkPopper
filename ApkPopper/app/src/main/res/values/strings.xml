@@ -27,7 +27,7 @@
     <string name="app_manifest">Manifest</string>
     <string name="app_permission">Permissions</string>
     <string name="app_see_more">See More..</string>
-    <string name="app_grid">Grid Size [4]</string>
+    <string name="app_grid">Grid Size</string>
     <string name="app_grid_info">change icon grid sizes</string>
     <string name="app_save_directory">Save Directory</string>
     <string name="app_apk_file_save_format">APK File Save Format</string>
@@ -35,6 +35,7 @@
     <string name="app_app_version">App Version</string>
     <string name="app_about_us">About Us</string>
     <string name="app_tutorial">Show Tutorial</string>
+    <string name="app_privacyPolicy">Privacy Policy</string>
     <string name="app_about_us_full_details">This app help users to extract apk which are installed in your device. It will list all system app (default) and installed app (which you installed). It will save in a specific location which you can check in setting tab. Super fast extract file with some customization filename. If your are nerd this system also extract details about app like permission, manifest file etc.\n\nThis app is an opensource so, you can easily find us in our github repository which is listed below. If you want to post issue or want to add features you can directly create issue in github. \n\nChEErs!! :)</string>
     <string name="app_rate_us">Rate Us</string>
     <string name="app_rate_us_info">give us stars in app store</string>

@@ -22,6 +22,7 @@ package com.ztcartxe.reppopkpa.apkpopper.utils;
 import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Environment;
@@ -30,7 +31,10 @@ import android.view.View;
 import com.ztcartxe.reppopkpa.apkpopper.R;
 
 public class Utility {
+    private static final String TAG = "Utility";
+
     public static int totalGridSize = 4;
+    public static int deviceScreenType = 0;//0=>Mid Screen Size, 1=>Large Screen Size
 
     //Status Bar Color Change To Light
     public static void setLightStatusBar(View view, Activity activity){
@@ -43,7 +47,7 @@ public class Utility {
     }
 
     public static String extractDirectory(){
-        return Environment.getExternalStorageDirectory().getAbsolutePath() + "/apk_popper/";
+        return  Environment.getExternalStorageDirectory().getAbsolutePath() + "/apk_popper/";
     }
 
     public static void setSettingGridSize(Context context, int val){
@@ -52,7 +56,9 @@ public class Utility {
             SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.putInt(context.getString(R.string.key_preference_file_key_Grid), val);
             editor.apply();
-            if(val == 0){ totalGridSize = 4;}else if(val == 1){ totalGridSize = 3;}
+
+            if(deviceScreenType == 0){ totalGridSize = val == 0 ? 4 : 3;}
+            else if(deviceScreenType == 1){ totalGridSize = val == 0 ? 8 : 6;}
         }
         catch (Exception ex){
             ex.printStackTrace();
@@ -72,15 +78,7 @@ public class Utility {
 
     public static int getSettingGridSizeData(Context context){
         int v = getSettingGridSize(context);
-        if(v == 0){
-            return 4;
-        }
-        else if(v == 1){
-            return 3;
-        }
-        else{
-            return 4;
-        }
+        if(deviceScreenType == 0){ return v == 0 ? 4 : 3;} else{ return v == 0 ? 8 : 6;}
     }
 
     public static void setSettingApkFileSaveFormat(Context context, boolean[] vals){
@@ -134,6 +132,15 @@ public class Utility {
         catch (Exception ex){
             ex.printStackTrace();
             return false;
+        }
+    }
+
+    public static void setDeviceScreenType(Context context){
+        if((context.getResources().getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK) >= Configuration.SCREENLAYOUT_SIZE_LARGE){
+            deviceScreenType = 1;
+        }
+        else{
+            deviceScreenType = 0;
         }
     }
 }

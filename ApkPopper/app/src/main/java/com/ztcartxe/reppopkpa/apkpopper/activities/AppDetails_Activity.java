@@ -23,6 +23,7 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -45,8 +46,10 @@ import java.util.Calendar;
 import java.util.Locale;
 
 public class AppDetails_Activity extends AppCompatActivity implements ActivityCompat.OnRequestPermissionsResultCallback{
+    private static final String TAG = "AppDetails_Activity";
+
     public static PackageInfoItem packageInfoItem;
-    int WRITE_EXTERNAL_STORAGE = 200;
+    int REQUEST_PERMISSION_CODE = 200;
     PackageFullDetails packageFullDetails;
     Toolbar toolbar;
     ProgressBar progressBar;
@@ -176,7 +179,7 @@ public class AppDetails_Activity extends AppCompatActivity implements ActivityCo
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if(requestCode == WRITE_EXTERNAL_STORAGE){
+        if(requestCode == REQUEST_PERMISSION_CODE){
             if(grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
                 Toast.makeText(this, "Permission granted, you can extract apk now :)", Toast.LENGTH_SHORT).show();
             }
@@ -191,7 +194,7 @@ public class AppDetails_Activity extends AppCompatActivity implements ActivityCo
             return true;
         }
         else{
-            ActivityCompat.requestPermissions(this, new String[]{ Manifest.permission.WRITE_EXTERNAL_STORAGE}, WRITE_EXTERNAL_STORAGE);
+            ActivityCompat.requestPermissions(this, new String[]{ Manifest.permission.WRITE_EXTERNAL_STORAGE}, REQUEST_PERMISSION_CODE);
             return false;
         }
     }

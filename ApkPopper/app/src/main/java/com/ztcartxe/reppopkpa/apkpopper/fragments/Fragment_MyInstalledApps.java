@@ -62,6 +62,11 @@ public class Fragment_MyInstalledApps extends Fragment {
     }
 
     void setLayout(){
-        recyclerView.setLayoutManager(new GridLayoutManager(getContext(), Utility.totalGridSize));
+        try {
+            recyclerView.setLayoutManager(new GridLayoutManager(getContext(), Utility.totalGridSize));
+        }
+        catch (Exception ex){
+            ex.printStackTrace();
+        }
     }
 }

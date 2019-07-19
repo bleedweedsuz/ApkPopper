@@ -23,6 +23,7 @@ package com.ztcartxe.reppopkpa.apkpopper.fragments;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -58,10 +59,12 @@ public class Fragment_Settings extends Fragment implements View.OnClickListener 
         gridSizeTextView = view.findViewById(R.id.gridSize);
         view.findViewById(R.id.gridSizeBtn).setOnClickListener(this);
         view.findViewById(R.id.apk_file_save_format_btn).setOnClickListener(this);
+        view.findViewById(R.id.privacypPolicyBtn).setOnClickListener(this);
 
         view.findViewById(R.id.aboutusBtn).setOnClickListener(this);
         view.findViewById(R.id.licenseBtn).setOnClickListener(this);
         view.findViewById(R.id.tutorialBtn).setOnClickListener(this);
+        view.findViewById(R.id.saveDirectoryPathBtn).setOnClickListener(this);
 
         gridSizeTextView.setText("Grid Column [" + Utility.getSettingGridSizeData(getContext()) + "]");
 
@@ -78,7 +81,13 @@ public class Fragment_Settings extends Fragment implements View.OnClickListener 
     @Override
     public void onClick(View view) {
         if(view.getId() == R.id.gridSizeBtn){
-            CharSequence[] choiceItems = {"4 Tiles", "3 Tiles"};
+            CharSequence[] choiceItems;
+            if(Utility.deviceScreenType == 0){
+                choiceItems = new CharSequence[]{"4 Tiles", "3 Tiles"};
+            }
+            else{
+                choiceItems = new CharSequence[]{"8 Tiles", "6 Tiles"};
+            }
             AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
             builder.setTitle(getString(R.string.app_grid));
             builder.setSingleChoiceItems(choiceItems, Utility.getSettingGridSize(getContext()), new DialogInterface.OnClickListener(){
@@ -111,6 +120,12 @@ public class Fragment_Settings extends Fragment implements View.OnClickListener 
             Intent i = new Intent(getContext(), MainIntro_Activity.class);
             i.putExtra("isTutorial", true);
             startActivity(i);
+        }
+        else if(view.getId() == R.id.privacypPolicyBtn){
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://z-warrior.com/apk-popper/privacypolicy.html")));
+        }
+        else if(view.getId() == R.id.saveDirectoryPathBtn){
+            //..
         }
     }
 

@@ -21,6 +21,7 @@
 package com.ztcartxe.reppopkpa.apkpopper.engine;
 
 import android.content.Context;
+import android.util.Log;
 import android.widget.Toast;
 import java.io.File;
 import java.io.FileInputStream;
@@ -31,10 +32,15 @@ import java.nio.channels.FileChannel;
 import java.nio.channels.WritableByteChannel;
 
 public class PopManager{
+
+    private static final String TAG = "PopManager";
+
     private File fileSource;
     private Context context;
     private String path, fileName;
     private ProgressCallBack progressCallBack;
+    FileInputStream fileInputStream;
+    FileOutputStream fileOutputStream;
 
     public interface ProgressCallBack{
         void onStart();
@@ -56,16 +62,18 @@ public class PopManager{
             File dir = new File(this.path);
             if(dir.exists() && dir.isDirectory()){
                 fileDestination = new File(path  + fileName);
+                Log.e(TAG, "exists");
             }
             else{
                 //Create Directory
-                dir.mkdir();
+                boolean data= dir.mkdir();
                 fileDestination = new File(path  + fileName);
+                Log.e(TAG, "mkdir()-->" + data);
             }
-
             pop(fileDestination);
         }
         catch (Exception ex){
+            Log.e(TAG, ex.toString());
             ex.printStackTrace();
         }
     }
@@ -73,8 +81,8 @@ public class PopManager{
     private void pop(File fileDestination){
         try {
             progressCallBack.onStart();
-            FileInputStream fileInputStream = new FileInputStream(fileSource);
-            FileOutputStream fileOutputStream = new FileOutputStream(fileDestination);
+            fileInputStream = new FileInputStream(fileSource);
+            fileOutputStream = new FileOutputStream(fileDestination);
 
             FileChannel fileChannel_IN = fileInputStream.getChannel();
             FileChannel fileChannel_OUT = fileOutputStream.getChannel();
@@ -85,14 +93,17 @@ public class PopManager{
 
             fileChannel_IN.close();
             fileChannel_OUT.close();
-            fileInputStream.close();
-            fileOutputStream.close();
-            progressCallBack.onStop();
 
             Toast.makeText(context, "APK Extracted : " + fileDestination.getAbsolutePath(), Toast.LENGTH_SHORT).show();
         }
         catch (Exception ex){
+            Toast.makeText(context, ex.getMessage(), Toast.LENGTH_SHORT).show();
+            progressCallBack.onStop();
             ex.printStackTrace();
+        }
+        finally {
+            try {if (fileInputStream != null) {fileInputStream.close();}if (fileOutputStream != null) {fileOutputStream.close();}} catch (Exception ex){ex.printStackTrace();}
+            progressCallBack.onStop();
         }
     }
 

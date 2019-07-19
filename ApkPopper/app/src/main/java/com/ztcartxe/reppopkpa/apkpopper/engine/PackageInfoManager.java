@@ -24,6 +24,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ResolveInfo;
 import android.os.AsyncTask;
+import android.util.Log;
 
 import com.ztcartxe.reppopkpa.apkpopper.model.PackageInfoItem;
 
@@ -31,6 +32,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PackageInfoManager {
+    private static final String TAG = "PackageInfoManager";
+
     private Context context;
     private PackageTask packageTask;
 
@@ -94,6 +97,7 @@ public class PackageInfoManager {
             }
             catch (Exception ex){
                 ex.printStackTrace();
+                Log.e(TAG, ex.getMessage());
             }
             return null;
         }
