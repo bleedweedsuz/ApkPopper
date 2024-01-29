@@ -1,0 +1,30 @@
+ Apkretrieve
+Simple App that lets user to get info about installed app and extract them.
+Updates available in play store
+
+Current Features
+
+Get apk info
+App Icon ✔
+App Name ✔
+Package Name ✔
+Version No. ✔
+Version Code ✔
+Compiled SDK ✔
+Compile SDK Code ✔
+Installed Date ✔
+Installed Location ✔
+Last Modified/Update ✔
+MIME ✔
+Target SDK ✔
+Min SDK ✔
+OpenGL Es Version ✔
+Platform Build Version ✔
+Uses Feature Lists ✔
+Dex Class Lists ✔
+Manifest XML File ✔
+Permission Lists ✔
+Extract installed APK File ✔
+Upcoming Features
+
+check for latest update in App or Browser.
